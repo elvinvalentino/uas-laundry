@@ -1,0 +1,139 @@
+:root {
+  --bg-white: #fff;
+  --bg-primary: #f4f7fc;
+  --bg-secondary: #d7dbec;
+  --text-black: #000;
+  --btn-primary: #0058ff;
+  --btn-danger: #f0142f;
+}
+
+thead {
+  background-color: var(--bg-secondary);
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none;
+}
+.table > :not(:first-child) {
+  border: none;
+}
+
+tbody tr {
+  background-color: var(--bg-white);
+}
+
+table thead tr:last-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+table thead tr:last-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+table tbody tr:last-child th {
+  border-bottom-left-radius: 10px;
+}
+
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.my-btn-primary {
+  background-color: var(--btn-primary);
+}
+
+.login-card {
+  width: 450px;
+
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.sidebar {
+  padding: 3em 2em;
+  width: 280px;
+}
+
+.sidebar ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.sidebar ul li a {
+  position: relative;
+  display: block;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background-color: var(--bg-primary);
+  color: var(--btn-primary);
+}
+
+.sidebar ul li a.active::after,
+.sidebar ul li a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  background-color: var(--btn-primary);
+}
+
+.sidebar ul li .sidebar-icon-wrapper {
+  width: 20px;
+  margin-right: 1em;
+}
+
+.content {
+  max-height: 100vh;
+  height: 100vh;
+  padding: 3em 2em;
+  background-color: var(--bg-primary);
+}
+
+.heading {
+  font-size: 2.25em;
+  margin-bottom: 1em;
+}
+
+.form-content {
+  max-height: 100vh;
+  height: 100vh;
+  padding: 3em 2em;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+.flex-5 {
+  flex: 5;
+}
+
+.flex-6 {
+  flex: 6;
+}
