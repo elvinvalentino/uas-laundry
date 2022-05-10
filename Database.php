@@ -22,7 +22,8 @@
 
         return $stmt;
       }catch(PDOException $e){
-        echo "Connection failed. " . $e->getMessage();
+        echo "Error. " . $e->getMessage();
+        die();
       }
     }
   }

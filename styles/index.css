@@ -11,6 +11,10 @@ thead {
   background-color: var(--bg-secondary);
 }
 
+table tr[data-href] {
+  cursor: pointer;
+}
+
 tbody,
 td,
 tfoot,
@@ -25,6 +29,7 @@ tr {
 
 tbody tr {
   background-color: var(--bg-white);
+  vertical-align: middle;
 }
 
 table thead tr:last-child th:first-child {
@@ -136,4 +141,8 @@ table tbody tr:last-child td:last-child {
 
 .flex-6 {
   flex: 6;
+}
+
+.x-button {
+  color: var(--text-black);
 }

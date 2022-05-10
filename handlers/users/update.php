@@ -3,21 +3,15 @@
 
  $route = '/laundry/?page=admin';
 
+  $id = $_POST['id'];
   $email = $_POST['email'];
   $firstname = $_POST['firstname'];
   $lastname = $_POST['lastname'];
-  $password = $_POST['password'];
   $phoneNumber = $_POST['phoneNumber'];
-  $confPassword = $_POST['confPassword'];
 
-  if($password != $confPassword) {
-    header("location: $route&action=add&actionError=Password%20does%20not%20match");
-    die();
-  }
-
-
-  $stmt = $db->query("SELECT * FROM `users` WHERE email = :email", array(
-    ':email' => $email
+  $stmt = $db->query("SELECT * FROM `users` WHERE email = :email AND id != :id", array(
+    ':email' => $email,
+    ':id' => $id
   ));
 
   if($stmt->rowCount() > 0) {
@@ -27,15 +21,19 @@
 
   $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-  $db->query("INSERT INTO `users` (email, password, firstname, lastname, phone_number, is_superadmin) 
-    VALUES (:email, :password, :firstname, :lastname, :phone_number, :is_superadmin)",
+  $db->query("UPDATE `users` SET
+   email = :email,
+   firstname = :firstname,
+   lastname = :lastname,
+   phone_number = :phone_number
+   WHERE id = :id
+   ",
     array(
       ':email' => $email,
-      ':password' => $hashedPassword,
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':phone_number' => $phoneNumber,
-      ':is_superadmin' => 0,
+      ':id' => $id,
     ));
 
   header("location: $route&action=list");

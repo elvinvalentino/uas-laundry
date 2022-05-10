@@ -8,6 +8,8 @@
       <th scope="col">Email</th>
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th>
+      <th scope="col">Phonenumber</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +23,15 @@
         <td><?= $row['email'] ?></td>
         <td><?= $row['firstname'] ?></td>
         <td><?= $row['lastname'] ?></td>
+        <td><?= $row['phone_number'] ?></td>
+        <td>
+        <a class="btn btn-warning" href="?page=admin&action=edit&id=<?= $row['id'] ?>">
+            <i class="fa-solid fa-pen"></i>
+          </a>
+          <a class="btn btn-danger" href="./handlers/users/delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure want to delete admin with email of <?= $row['email'] ?>?')">
+            <i class="fa-solid fa-trash-can"></i>
+          </a>
+        </td>
       </tr>
     <?php } ?>
   </tbody>
