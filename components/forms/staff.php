@@ -1,6 +1,6 @@
 <?php 
   if($action == 'edit') {
-    $stmt = $db->query('SELECT * FROM `users` WHERE id = :id', array(
+    $stmt = $db->query('SELECT * FROM `staffs` WHERE id = :id', array(
       ':id' => isset($_GET['id']) ? $_GET['id'] : 1
     ));
     $data = $stmt->fetch();
@@ -13,7 +13,7 @@
       <i class="fa-solid fa-x fa-2x"></i>
     </a>
   </div>
-  <form action="./handlers/users/<?= $action == 'add' ? 'create' : 'update' ?>.php" method="POST">
+  <form action="./handlers/staffs/<?= $action == 'add' ? 'create' : 'update' ?>.php" method="POST">
     <?php if(isset($_GET['actionError'])) { ?>
       <div class="alert alert-danger" role="alert"><?= $_GET['actionError'] ?></div>
     <?php } ?>

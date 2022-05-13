@@ -9,7 +9,7 @@
   $lastname = $_POST['lastname'];
   $phoneNumber = $_POST['phoneNumber'];
 
-  $stmt = $db->query("SELECT * FROM `users` WHERE email = :email AND id != :id", array(
+  $stmt = $db->query("SELECT * FROM `staffs` WHERE email = :email AND id != :id", array(
     ':email' => $email,
     ':id' => $id
   ));
@@ -21,7 +21,7 @@
 
   $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-  $db->query("UPDATE `users` SET
+  $db->query("UPDATE `staffs` SET
    email = :email,
    firstname = :firstname,
    lastname = :lastname,

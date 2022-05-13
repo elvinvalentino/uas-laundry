@@ -16,7 +16,7 @@
   }
 
 
-  $stmt = $db->query("SELECT * FROM `users` WHERE email = :email", array(
+  $stmt = $db->query("SELECT * FROM `staffs` WHERE email = :email", array(
     ':email' => $email
   ));
 
@@ -27,15 +27,15 @@
 
   $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-  $db->query("INSERT INTO `users` (email, password, firstname, lastname, phone_number, is_superadmin) 
-    VALUES (:email, :password, :firstname, :lastname, :phone_number, :is_superadmin)",
+  $db->query("INSERT INTO `staffs` (email, password, firstname, lastname, phone_number, is_owner) 
+    VALUES (:email, :password, :firstname, :lastname, :phone_number, :is_owner)",
     array(
       ':email' => $email,
       ':password' => $hashedPassword,
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':phone_number' => $phoneNumber,
-      ':is_superadmin' => 0,
+      ':is_owner' => 0,
     ));
 
   header("location: $route&action=list");

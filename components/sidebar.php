@@ -1,7 +1,7 @@
 <div class="sidebar">
   <h5 class="mb-4">OneLaundry</h5>
   <ul>
-    <?php if($user['is_superadmin'] == 1) { ?>
+    <?php if($user['is_owner'] == 1) { ?>
       <li>
           <a class="<?= $page == 'admin' ? 'active' : '' ?>" href="?page=admin">
             <div class="d-inline-block sidebar-icon-wrapper">

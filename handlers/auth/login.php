@@ -4,7 +4,7 @@
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  $stmt = $db->query("SELECT * FROM `users` WHERE email = :email", array(
+  $stmt = $db->query("SELECT * FROM `staffs` WHERE email = :email", array(
     ':email' => $email
   ));
 

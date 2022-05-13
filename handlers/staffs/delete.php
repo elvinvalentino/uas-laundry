@@ -4,7 +4,7 @@
 
   $id = $_GET['id'];
 
-  $db->query("DELETE FROM `users` WHERE id = :id", array(
+  $db->query("DELETE FROM `staffs` WHERE id = :id", array(
      ':id' => $id,
    ));
 

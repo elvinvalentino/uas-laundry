@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <?php 
-      $stmt = $db->query('SELECT * FROM `users`');
+      $stmt = $db->query('SELECT * FROM `staffs`');
       $num = 1;
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     ?>
@@ -28,8 +28,8 @@
         <a class="btn btn-warning" href="?page=admin&action=edit&id=<?= $row['id'] ?>">
             <i class="fa-solid fa-pen"></i>
         </a>
-        <?php if($user['id'] != $row['id'] || $row['is_superadmin'] != 1) { ?>
-          <a class="btn btn-danger" href="./handlers/users/delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure want to delete admin with email of <?= $row['email'] ?>?')">
+        <?php if($user['id'] != $row['id'] || $row['is_owner'] != 1) { ?>
+          <a class="btn btn-danger" href="./handlers/staffs/delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure want to delete admin with email of <?= $row['email'] ?>?')">
             <i class="fa-solid fa-trash-can"></i>
           </a>
         <?php } ?>

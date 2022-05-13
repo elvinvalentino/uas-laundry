@@ -12,13 +12,13 @@ $user = $_SESSION['user'];
 if(isset($_GET['page'])) {
   $page = $_GET['page'];
 } else {
-  $page = $user['is_superadmin'] == 1 ? 'admin' : 'customer';
+  $page = $user['is_owner'] == 1 ? 'admin' : 'customer';
 }
 
 $action = $_GET['action'] ?? 'list'; 
 
 
-if($user['is_superadmin'] != 1 && $page == 'admin') {
+if($user['is_owner'] != 1 && $page == 'admin') {
   $page = 'customer';
 }
 ?>
@@ -29,13 +29,13 @@ if($user['is_superadmin'] != 1 && $page == 'admin') {
     <h5 class="heading text-uppercase"><?= $page ?></h5>
     <?php 
       if($page == 'admin') {
-        include_once("./components/tables/admin.php");
+        include_once("./components/tables/staff.php");
       }
     ?>
     </div>
     <?php if($action != 'list') { 
       if($page == 'admin') {
-        include_once("./components/forms/admin.php");
+        include_once("./components/forms/staff.php");
       }
     } ?>
   </div>
