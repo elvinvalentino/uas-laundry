@@ -1,6 +1,6 @@
 <?php 
   if($action == 'edit') {
-    $stmt = $db->query('SELECT * FROM `staffs` WHERE id = :id', array(
+    $stmt = $db->query('SELECT * FROM `customers` WHERE id = :id', array(
       ':id' => isset($_GET['id']) ? $_GET['id'] : 1
     ));
     $data = $stmt->fetch();
@@ -9,11 +9,11 @@
 <div class="flex-3 form-content">
   <div class="d-flex justify-content-between">
     <h5 class="heading text-uppercase"><?= $action . ' ' . $page ?></h5>
-    <a class="x-button" href="?page=admin&action=list">
+    <a class="x-button" href="?page=customer&action=list">
       <i class="fa-solid fa-x fa-2x"></i>
     </a>
   </div>
-  <form action="./handlers/staffs/<?= $action == 'add' ? 'create' : 'update' ?>.php" method="POST">
+  <form action="./handlers/customers/<?= $action == 'add' ? 'create' : 'update' ?>.php" method="POST">
     <?php if(isset($_GET['actionError'])) { ?>
       <div class="alert alert-danger" role="alert"><?= $_GET['actionError'] ?></div>
     <?php } ?>
@@ -35,16 +35,12 @@
       <label for="phoneNumber" class="form-label">Phone Number</label>
       <input required type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="<?= $data['phone_number'] ?? '' ?>">
     </div>
-    <?php if($action == 'add') { ?>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input required type="password" class="form-control" id="password" name="password" placeholder="Password">
+      <label for="address" class="form-label">Address</label>
+      <textarea required class="form-control" id="address" name="address" placeholder="Address">
+        <?= $data['address'] ?? '' ?>
+      </textarea>
     </div>
-    <div class="mb-4">
-      <label for="confPassword" class="form-label">Confirm Password</label>
-      <input required type="password" class="form-control" id="confPassword" name="confPassword" placeholder="Confirm Password">
-    </div>
-    <?php } ?>
     <input type="hidden" name="id" value="<?= $data['id'] ?>">
     <div class="d-flex justify-content-end">
       <button type="submit" class="btn btn-primary text-uppercase"><?= $action . ' ' . $page ?></button>

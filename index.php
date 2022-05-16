@@ -30,12 +30,20 @@ if($user['is_owner'] != 1 && $page == 'admin') {
     <?php 
       if($page == 'admin') {
         include_once("./components/tables/staff.php");
+      } else if ($page == 'package') {
+        include_once("./components/tables/package.php");
+      } else if ($page == 'customer') {
+        include_once("./components/tables/customer.php");
       }
     ?>
     </div>
     <?php if($action != 'list') { 
       if($page == 'admin') {
         include_once("./components/forms/staff.php");
+      } else if ($page == 'package') {
+        include_once("./components/forms/package.php");
+      } else if ($page == 'customer') {
+        include_once("./components/forms/customer.php");
       }
     } ?>
   </div>
