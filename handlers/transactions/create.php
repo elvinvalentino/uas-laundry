@@ -9,6 +9,11 @@
   $package_id = $_POST['package_id'];
   $weight = $_POST['weight'];
 
+  if(!$customer_id || !$package_id) {
+    header("location: $route&action=add&actionError=Please%20fill%20all%20fields");
+    die();
+  }
+
   $packageStmt = $db->query('SELECT * FROM `packages` WHERE id = :id', array(
     ':id' => $package_id
   ));
