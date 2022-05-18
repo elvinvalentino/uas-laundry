@@ -34,6 +34,8 @@ if($user['is_owner'] != 1 && $page == 'admin') {
         include_once("./components/tables/package.php");
       } else if ($page == 'customer') {
         include_once("./components/tables/customer.php");
+      } else if ($page == 'order') {
+        include_once("./components/tables/transaction.php");
       }
     ?>
     </div>
@@ -44,6 +46,8 @@ if($user['is_owner'] != 1 && $page == 'admin') {
         include_once("./components/forms/package.php");
       } else if ($page == 'customer') {
         include_once("./components/forms/customer.php");
+      } else if ($page == 'order') {
+        include_once("./components/forms/transaction.php");
       }
     } ?>
   </div>
