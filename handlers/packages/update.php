@@ -11,14 +11,13 @@
   $db->query("UPDATE `packages` SET
    name = :name,
    price_per_kg = :price_per_kg,
-   duration = :duration,
+   duration = :duration
    WHERE id = :id
    ",
     array(
       ':name' => $name,
-      ':price_per_kg' => $firstname,
-      ':duration' => $pricePerKg,
-      ':phone_number' => $phoneNumber,
+      ':price_per_kg' => $pricePerKg,
+      ':duration' => $duration,
       ':id' => $id,
     ));
 
